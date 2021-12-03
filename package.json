@@ -1,0 +1,38 @@
+{
+  "name": "mvp",
+  "version": "1.0.0",
+  "description": "James plier mvp project",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon run ./server/server.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jplier/hr-rfe6-mvp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jplier/hr-rfe6-mvp/issues"
+  },
+  "homepage": "https://github.com/Jplier/hr-rfe6-mvp#readme",
+  "dependencies": {
+    "animejs": "^3.2.1",
+    "axios": "^0.24.0",
+    "babel-loader": "^8.2.3",
+    "express": "^4.17.1",
+    "jest": "^27.4.3",
+    "nodemon": "^2.0.15",
+    "pg": "^8.7.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/preset-react": "^7.16.0",
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1"
+  }
+}
