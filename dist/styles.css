@@ -1,9 +1,23 @@
 #app {
+  position: relative;
   display: grid;
   grid-template-rows: 1fr;
   height: 100vh;
   background-color: aqua;
 }
+
+#choice-1 {
+  position: absolute;
+  top: 20%;
+  right: 10%;
+}
+
+#choice-2 {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+}
+
 
 #die-container {
   grid-row: 2/3;
@@ -12,18 +26,14 @@
 }
 #username {
   position: absolute;
-  top: 70%;
-  -webkit-transform: translateY(-20%);
-  -ms-transform: translateY(-20%);
-  transform: translateY(-20%);
+  top: 10%;
   left: 0;
   right: 0;
   margin: auto;
   text-align: center;
   font-size: 50px;
   z-index: 2;
-  height: 30px;
-  width: auto;
+
 }
 input {
   width: 400px;
@@ -68,6 +78,7 @@ input {
 }
 
 #goblin-lines {
+ justify-self: center;
 
  grid-row: 3/4;
 }

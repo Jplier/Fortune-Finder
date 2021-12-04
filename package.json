@@ -7,6 +7,7 @@
     "start": "nodemon run ./server/server.js",
     "test": "jest"
   },
+  "proxy": "http://localhost:3000/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Jplier/hr-rfe6-mvp.git"

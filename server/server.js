@@ -3,6 +3,8 @@ const db = require('../db/db.js')
 
 
 const app = express();
+app.use(express.json());
+app.use(express.static('dist'))
 
 app.listen(3000, (err) => {
   console.log('Listening on port 3000')
@@ -11,12 +13,16 @@ app.listen(3000, (err) => {
   }
 })
 
-app.get("/:username/rolls", (req, res) => {
-  db.getRolls(req.query.username)
-  .then((results) => {
-    res.send(results)
-  })
-  .catch((err) => {
-    res.send(err)
-  })
+// app.get("/:username/rolls", (req, res) => {
+//   db.getRolls(req.query.username)
+//   .then((results) => {
+//     res.send(results)
+//   })
+//   .catch((err) => {
+//     res.send(err)
+//   })
+// })
+
+app.post('/username', (req, res) => {
+  res.status(201).send('hello, world');
 })

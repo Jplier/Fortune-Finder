@@ -1,15 +1,17 @@
+
+
 const storyText = {
   node0L1: ["OH... Welcome traveler to gobbos fortune-telling game..."],
   node0L2: ["Tell me... What is your name?", 'input-required'],
-  node0L3: [`Well ${name} my game will test your wit, will and morals. To begin, simply click the mystical die!`],
+  node0L3: [(name) => `Well ${name} my game will test your wit, will and morals. To begin, simply click the mystical die!`],
   node1L1: ["Our story begins in a grassy field."],
   node1L2: ["You feel the wet dew of early morning tickling between your naked feet."],
-  node1L3: ["In the distance is a deep fog encapsulating a woodland. Through the morning light you can barely make out the visage of a wild animal. What do you do?"],
+  node1L3: ["In the distance is a deep fog encapsulating a woodland. Through the morning light you can barely make out the visage of a wild animal. What do you do?", 'dice-enable'],
   node2L1: ['With all haste you push your feet against the dirt and give chase!'],
   node2L2: ['The creature proves fleet and vanishes into the deeper darkness of the forest'],
   node2L3: ['You begin to remember something you learned in school. If you\'re lost in the woods with no food you should...'],
   node3L1: ['With all haste you push your feet against the dirt and give chase!'],
-  node3L2: ['With some luck you corner the beast! Tis\` the white fawn, pure as untrodden snow. "Please," it begs, "Let me go and surely i will return this kindness. My daughter awaits me at her wedding!"...']
+  node3L2: ['With some luck you corner the beast! Tis\` the white fawn, pure as untrodden snow. "Please," it begs, "Let me go and surely i will return this kindness. My daughter awaits me at her wedding!"...'],
 }
 
 const choices = {
