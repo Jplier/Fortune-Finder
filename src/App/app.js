@@ -6,13 +6,6 @@ import GoblinLines from './components/goblinLines'
 import PlayerChoices from './components/playerChoices.js'
 import { diceRoll } from './components/animations/diceRoll.js'
 
-// const animateText = (text) {
-//   anime({
-
-//   }
-//   )
-// }
-
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -26,6 +19,14 @@ class App extends React.Component {
     }
     this.diceClickHandler = this.diceClickHandler.bind(this);
     this.choiceView = this.choiceView.bind(this);
+    this.userSubmit = this.userSubmit.bind(this);
+    this.inputView = this.inputView.bind(this);
+    this.choiceView = this.choiceView.bind(this);
+  }
+
+  userSubmit() {
+   event.preventDefault();
+   console.log(event.target)
   }
 
   diceClickHandler(e) {
@@ -33,8 +34,6 @@ class App extends React.Component {
    if (!this.state.diceEnable) {
       return null;
     }
-
-
     diceRoll()
     .then(() =>
       this.setState({
@@ -62,26 +61,24 @@ class App extends React.Component {
         diceEnable: true
       })
     }
+  }
 
-    // e.preventDefault();
-    // storyText[`node${this.state.storyNode}L${this.state.storyLine + 1}`] && !storyText[`node${this.state.storyNode}L${this.state.storyLine}`][1] ?
-    // this.setState({
-    //   storyLine: (this.state.storyLine) + 1
-    // }) :
-    // this.setState({
-    //   diceEnable: true
-    // })
+  typeChange() {
+    this.setState({
+      userName: event.target.value
+    })
   }
 
   handleChoiceSelect() {
 
   }
+
   inputView() {
     return !this.state.inputRequired ? null :
     (<>
-    <form id='username'>
-      <input type='text'></input>
-      <input type='submit'></input>
+    <form id='username' onSubmit={this.userSubmit}>
+      <input type='text' value={this.state.userName} onChange={this.typeChange.bind(this)}></input>
+      <input type='submit' ></input>
       </form>
       </>)
   }
