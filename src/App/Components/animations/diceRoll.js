@@ -32,4 +32,4 @@ return anime({
 .finished
 }
 
-export default diceRoll
+export { diceRoll }

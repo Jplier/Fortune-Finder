@@ -10,6 +10,26 @@
   align-content: center;
   position: relative;
 }
+#username {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-20%);
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  font-size: 50px;
+  z-index: 2;
+  height: 30px;
+  width: auto;
+}
+input {
+  width: 400px;
+  height: 100px;
+  font-size: 100px;
+}
 
 #die {
   position: absolute;
