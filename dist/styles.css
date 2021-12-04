@@ -1,3 +1,53 @@
+#app {
+  display: grid;
+  grid-template-rows: 1fr;
+  height: 100vh;
+  background-color: aqua;
+}
+
+#die-container {
+  grid-row: 2/3;
+  align-content: center;
+  position: relative;
+}
+
 #die {
-  font-size: 50px
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  font-size: 50px;
+}
+
+#die-svg {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+}
+
+#main {
+  grid-row: 1/2;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 4fr 2fr;
+}
+
+#crystal-ball {
+  grid-row: 2/3;
+}
+
+#goblin-lines {
+
+ grid-row: 3/4;
 }
