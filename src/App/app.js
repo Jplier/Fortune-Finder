@@ -4,6 +4,7 @@ import anime from 'animejs/lib/anime.es.js';
 import { choices, storyText } from './components/storyText.js'
 import GoblinLines from './components/goblinLines'
 import PlayerChoices from './components/playerChoices.js'
+import diceRoll from './components/animations/diceRoll.js'
 
 // const animateText = (text) {
 //   anime({
@@ -19,55 +20,29 @@ class App extends React.Component {
       currentDieNum: 20,
       storyNode: 0,
       storyLine: 1,
-      userName: ''
+      userName: '',
+      diceEnable: false,
+      inputRequired: false
     }
     this.diceClickHandler = this.diceClickHandler.bind(this);
     this.choiceView = this.choiceView.bind(this);
   }
 
   diceClickHandler(e) {
-    let dicenum;
     e.preventDefault();
+   if (!this.state.diceEnable) {
+      return null;
+    }
 
-     anime({
-      targets: '#die',
-      duration: 2000,
-      keyframes: [
-        {innerHTML: function() {
-          return Math.floor(Math.random() * 20) + 1
-        },
-      duration: 100
-    },
-        {innerHTML: function() {
-          return Math.floor(Math.random() * 20) + 1
-        },
-        duration: 100
-      },
-        {
-          innerHTML: function() {
-            let num =  Math.floor(Math.random() * 20) + 1
-            dicenum = num;
-            return num
-          },
-        easing: 'easeOutQuad',
-      duration: 1000
-    },
-      ],
-      round: 1,
-      easing: 'linear',
-      delay: 0,
-    })
-    .finished
+
+    diceRoll()
     .then(() =>
       this.setState({
-        currentDieNum: dicenum,
+        currentDieNum: document.getElementById('die').innerHTML,
         storyNode: this.state.storyNode === 0 ? 1 : null,
         storyLine: 1
       })
     )
-
-
-
   }
 
   advance(e) {
@@ -76,13 +51,26 @@ class App extends React.Component {
     this.setState({
       storyLine: (this.state.storyLine) + 1
     }) :
-    null
+    this.setState({
+      diceEnable: true
+    })
+  }
+
+  handleChoiceSelect() {
+
+  }
+  inputview() {
+    return !this.state.inputRequired ? null :
+    (<>
+    <form>
+      </form>
+      </>)
   }
 
   choiceView() {
    return storyText[`node${this.state.storyNode}L${this.state.storyLine + 1}`] !== undefined ? null :
    this.state.storyNode === 0 ? null :
-   (<PlayerChoices num={this.state.currentDieNum} firstChoice={choices[`choice${this.state.storyNode}-1`]} secondChoice={choices[`choice${this.state.storyNode}-2`]} />)
+   (<PlayerChoices num={this.state.currentDieNum} firstChoice={choices[`choice${this.state.storyNode}-1`]} secondChoice={choices[`choice${this.state.storyNode}-2`]} handleChoiceSelect={this.handleChoiceSelect}/>)
 
   }
 
@@ -94,6 +82,7 @@ class App extends React.Component {
       <div>
        {this.choiceView()}
       </div>
+      <div>{this.inputView()}</div>
 
     </div>
     )
