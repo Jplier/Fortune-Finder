@@ -1,6 +1,6 @@
 const storyText = {
   node0L1: ["OH... Welcome traveler to gobbos fortune-telling game..."],
-  node0L2: ["Tell me... What is your name?"],
+  node0L2: ["Tell me... What is your name?", 'input-required'],
   node0L3: [`Well ${name} my game will test your wit, will and morals. To begin, simply click the mystical die!`],
   node1L1: ["Our story begins in a grassy field."],
   node1L2: ["You feel the wet dew of early morning tickling between your naked feet."],

@@ -46,20 +46,37 @@ class App extends React.Component {
   }
 
   advance(e) {
-    e.preventDefault();
-    storyText[`node${this.state.storyNode}L${this.state.storyLine + 1}`] ?
-    this.setState({
-      storyLine: (this.state.storyLine) + 1
-    }) :
-    this.setState({
-      diceEnable: true
-    })
+    if (this.state.inputRequired) {
+      return null;
+    }
+
+    if (storyText[`node${this.state.storyNode}L${this.state.storyLine + 1}`] &&
+    storyText[`node${this.state.storyNode}L${this.state.storyLine + 1}`][1]
+    ) {
+      this.setState({
+        storyLine: (this.state.storyLine) + 1,
+        inputRequired: true
+      })
+    } else {
+      this.setState({
+        diceEnable: true
+      })
+    }
+
+    // e.preventDefault();
+    // storyText[`node${this.state.storyNode}L${this.state.storyLine + 1}`] && !storyText[`node${this.state.storyNode}L${this.state.storyLine}`][1] ?
+    // this.setState({
+    //   storyLine: (this.state.storyLine) + 1
+    // }) :
+    // this.setState({
+    //   diceEnable: true
+    // })
   }
 
   handleChoiceSelect() {
 
   }
-  inputview() {
+  inputView() {
     return !this.state.inputRequired ? null :
     (<>
     <form>
