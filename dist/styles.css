@@ -1,17 +1,10 @@
-#app {
-  position: relative;
-  display: grid;
-  grid-template-rows: 1fr;
-  height: 100vh;
-  background-color: rgb(28, 1, 14);
-}
 
 #crystal-ball {
   height: 350px;
   width: auto;
   justify-self: center;
   position: absolute;
-  top: 47%;
+  top: 40%;
   z-index: 3;
 }
 
@@ -31,8 +24,13 @@
 }
 
 #reset-button {
-  height: 100px;
-  width: 100px;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: url('./images/Playbutton.png') no-repeat;
+  border: none;
+  background-color: transparent;
+
 }
 #right-hand {
   position: absolute;
@@ -48,22 +46,48 @@
 }
 #choice-1 {
   position: absolute;
-  top: 20%;
+  top: 60%;
   right: 10%;
-}
-#table {
-  width: 100%;
+  color: white;
+  background-color: black;
+  font-family: 'Jost';
+  z-index: 5;
+  width: 300px;
   height: auto;
-  position: absolute;
-  bottom: 0%;
-  z-index: 0;
-
+  border: solid white 5px;
+  font-size: 25px;
 }
+
 
 #choice-2 {
   position: absolute;
-  top: 20%;
+  top: 60%;
   left: 10%;
+  color: white;
+  background-color: black;
+  font-family: 'Jost';
+  z-index: 5;
+  font-size: 25px;
+  width: 300px;
+  height: auto;
+  border: solid white 5px;
+}
+
+#choice-2:hover {
+  color: purple;
+}
+#choice-1:hover {
+  color: purple;
+}
+
+#table {
+  position: absolute;
+  bottom: 0%;
+  z-index: 0;
+  justify-self: center;
+  overflow: hidden;
+  transform: translateY(70px);
+
 }
 
 
@@ -72,26 +96,35 @@
   align-content: center;
   position: relative;
 }
+
 #username {
   position: absolute;
-  top: 10%;
-  left: 0;
-  right: 0;
-  margin: auto;
+  align-self: center;
+  bottom: 5%;
+  left: 30%;
   text-align: center;
-  font-size: 50px;
   z-index: 2;
-
 }
-input {
-  width: 400px;
-  height: 100px;
-  font-size: 100px;
+input[type='text']{
+  width: 200px;
+  height: 20px;
+  font-size: 15px;
+  justify-self: center;
+  background-color: black;
+  color: white;
+  border: solid white 5px;
+}
+
+input[type='submit'] {
+  margin-left: 20px;
+  background-color: black;
+  color: white;
+
 }
 
 #die {
   position: absolute;
-  top: 85%;
+  top: 80%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -100,17 +133,14 @@ input {
   margin: auto;
   text-align: center;
   font-size: 50px;
-  z-index: 2;
+  z-index: 7;
   color: white;
 }
 
 #die-svg {
   position: absolute;
   fill: red;
-  top:70%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  top:65%;
   left: 0;
   right: 0;
   margin: auto;
@@ -122,14 +152,21 @@ input {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 4fr 2fr;
+  height: auto;
+  overflow: hidden;
 }
 
 #goblin-lines {
  position: absolute;
- top: 90%;
+ top: 83%;
  justify-self: center;
  font-size: 25px;
  color: white;
+ width: 50%;
+ text-align: center;
+ background-color: black;
+ border: solid white 5px;
+ font-family: 'Jost', cursive;
 }
 
 .ml11 {
@@ -164,3 +201,35 @@ input {
   display: inline-block;
   line-height: 1em;
 }
+
+@keyframes bgScroll {
+  0% {
+    background-position : 0px 0px
+  }
+  100% {
+    background-position : 0px -808px
+  }
+}
+
+#app {
+  display: grid;
+  grid-template-rows: 1fr;
+  position: relative;
+  width:100vw;
+  height:100vh;
+  background: url('images/abstract-timekeeper.svg');
+  animation: bgScroll 20s linear infinite;
+  background-size: cover;
+}
+
+/* #background {
+  width: 200vw;
+  height: 200vh;
+  position: absolute;
+  top: 0%;
+  justify-self: center;
+} */
+
+
+
+

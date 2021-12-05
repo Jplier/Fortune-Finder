@@ -9,12 +9,12 @@ return anime({
     {innerHTML: function() {
       return Math.floor(Math.random() * 20) + 1
     },
-  duration: 100
+  duration: 1000
 },
     {innerHTML: function() {
       return Math.floor(Math.random() * 20) + 1
     },
-    duration: 100
+    duration: 1000
   },
     {
       innerHTML: function() {

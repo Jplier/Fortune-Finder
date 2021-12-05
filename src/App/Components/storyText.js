@@ -1,9 +1,9 @@
 
 
 const storyText = {
-  node0L1: ["OH... Welcome traveler to gobbos fortune-telling game..."],
+  node0L1: ["OH... Welcome traveler. I am the Greate Gombozo! Would you like to play a game?.."],
   node0L2: ["Tell me... What is your name?", 'input-required'],
-  node0L3: [(name) => `Well ${name} my game will test your wit, will and morals. To begin, simply click the mystical die!`],
+  node0L3: [(name) => { return `Well ${name} my game will test your wit, will and morals. To begin, simply click the mystical die!`}],
   node1L1: ["Our story begins in a grassy field."],
   node1L2: ["You feel the wet dew of early morning tickling between your naked feet."],
   node1L3: ["In the distance is a deep fog encapsulating a woodland. Through the morning light you can barely make out the visage of a wild animal. What do you do?", 'dice-enable'],
@@ -26,7 +26,28 @@ const storyText = {
   node7L1: ['You deftly gather the twigs and roots around you, expertly hiding your new trap amongs the fallen leaves'],
   node7L2: ['After a short wait you hear the snapping of line! Something has been hooked. You look past and see your sibling Barbara!'],
   node7L3: ['"What in the world are you doing?" Barbara announces a line or fibrous root enclosing their ankle.'],
-  node7L4: ['"You were supposed to be home for dinner 30 minutes ago," Barbara barks swiftly prying loose the noose with their sword']
+  node7L4: ['"You were supposed to be home for dinner 30 minutes ago," Barbara barks swiftly prying loose the noose with their sword'],
+  node8L1: ["As you lie on the ground, you begin to ponder the meaning of the universe."],
+  node8L2: ["Your conciousness melts into your surroundings and you achieve enlightenment"],
+  node8L3: ["You do not stand up..."],
+  node9L1: ["As you sit on the ground you connect with the forest."],
+  node9L2: ["You feel the beating of a hummingbirds tiny wings in the distance, you feel the drop of a leaf of an old oak"],
+  node9L3: ["With your heightened senses, you're assaulted by the delicious smell of cooking"],
+  node10L1: ["'Greedy human, you\'ll have my horn then!', the fawn shouts as she bears down upon you"],
+  node10L2: ["Her horn pierces your stomach, as you lie on the ground in agony you think perhaps there was another way"],
+  node10L3: ["You do not stand up..."],
+  node11L1: ["'Very well, for i would rather see my daughter with one horn than not at all!', the fawn speaks."],
+  node11L2: ["As you reach forward and grasp the fawns horn with both hands it breaks with a curtling snap."],
+  node11L3: ["In a burst of gleaming light, you find yourself holding a sword of pure bright silver, the fawn nowhere to be seen"],
+  node12L1: ["Noticing your hesitation the fawn bursts into the woods, leaving not a trace behind."],
+  node12L2: ["Suddenly you are struck on the back of the head! Lieing on the ground you see a rock with a small piece of parchment stuck in the center."],
+  node12L3: ["Unfolding the note it reads, 'Look to your left'"],
+  node12L4: ["You turn seeing a black road, paved at even intervals with glowing green gemstones. That wasnt there before..."],
+  node13L1: ["'Oh thank you noble sir, perhaps you would care to join me? If you are hungry there will be grand feast, with little canapes', the fawn speaks"],
+  node14L1: ["You explain to the mole that its house was no longer under warranty and therefore on the chopping block by the city council."],
+  node14L2: ["Feeling a tap on your shoulder you see the real inspector!"],
+  node14L3: ["'Impersonating a government official is a serious crime!', they shout bonking you on the head with their clipboard"],
+  node14L4: ['You do not arise...'],
 }
 
 const choices = {
@@ -34,10 +55,10 @@ const choices = {
   'choice1-2': ["Better to be safe, I'll dance to scare it off", 4, 5],
   'choice2-1': ["Set up a trap. That'll show these woods who's boss!", 6, 7],
   'choice2-2': ["Give up, sit down and wait for rescue.", 8, 9],
-  'choice3-1': ['Give me your horn and I will let you go, for with that horn i could hunt greater beasts more easily'],
-  'choice3-2': ['Let the poor creature go, on this the day of her daughter\'s wedding'],
-  'choice4-1': ['This mole is no match for your superior intellect, tell them you are the insurance fraud inspector'],
-  'choice4-2': ['Perhaps the mole is simply hungry, look i your pockets for food'],
+  'choice3-1': ['Give me your horn and I will let you go, for with that horn i could hunt greater beasts more easily', 10, 11],
+  'choice3-2': ['Let the poor creature go, on this the day of her daughter\'s wedding', 12, 13],
+  'choice4-1': ['This mole is no match for your superior intellect, tell them you are the insurance fraud inspector', 14, 15],
+  'choice4-2': ['Perhaps the mole is simply hungry, look i your pockets for food', 16, 17],
   'choice7-1': ['Oh right, i supposed I\'d better head home then, lead the way'],
   'choice7-2': ['Who the heck is barbara? Better beat feet and get away from this armed maniac']
 

@@ -2,7 +2,6 @@ import anime from 'animejs/lib/anime.es.js';
 
 
 const handSpin = () => {
-console.log('inside handspin')
   let path = anime.path('#path path');
   anime({
     targets: "#left-hand",
@@ -19,7 +18,8 @@ console.log('inside handspin')
     easing: 'linear',
     loop: true,
     direction: 'reverse',
-    duration: 3000
+    duration: 3000,
+
 
   })
 }

@@ -18,6 +18,8 @@ import diceRotate from './Components/animations/diceRotate.js'
 import rightHand from './Components/Images/righthand.svg';
 import leftHand from './Components/Images/leftHand.svg';
 import handSpin from './Components/animations/handSpin.js'
+import background from './Components/Images/abstract-timekeeper.svg'
+import spin from './Components/animations/backgroundSpin.js'
 
 const defaults = {
   currentDieNum: 20,
@@ -55,20 +57,22 @@ class App extends React.Component {
   componentDidMount() {
     diceRotate();
     handSpin();
+
   }
 
   userSubmit(param) {
    event.preventDefault();
    axios.post('/username', {
      data: {
-       username: param
+       userName: param
      }
    })
    .then((results) => {
      this.setState({
        inputRequired: false,
        storyLine: (this.state.storyLine) + 1,
-       diceEnable: true
+       diceEnable: true,
+       userName: param
      })
 
    })
@@ -77,7 +81,7 @@ class App extends React.Component {
 
   diceClickHandler(e) {
     e.preventDefault();
-   if (!this.state.diceEnable) {
+    if (!this.state.diceEnable) {
       return null;
     }
     diceRoll()
@@ -180,7 +184,7 @@ class App extends React.Component {
         <path stroke='none' fill='none' d='M242,48 q-94,15 -95,104 q12,87 104,99 q78,-13 94,-100 q-10,-88 -97,-102'> </path>
       </svg>
       <img id='mouth' src={mouth} />
-      <img id='table' src={table} />
+      <img id='table' width='1500' height='auto' src={table} />
       <GoblinLines username={this.state.userName} onClick={this.advance.bind(this)} text={storyText[`node${this.state.storyNode}L${this.state.storyLine}`]}/>
       <div>{this.inputView()}</div>
       <CrystalBall dieclick={this.diceClickHandler} id="crystal-ball"/>
