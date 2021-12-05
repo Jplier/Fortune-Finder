@@ -1,19 +1,23 @@
 import React from 'react';
 import CrystalBall from './components/crystalBall.js';
 import anime from 'animejs/lib/anime.es.js';
-import { choices, storyText } from './components/storyText.js'
-import GoblinLines from './components/goblinLines'
-import PlayerChoices from './components/playerChoices.js'
-import { diceRoll } from './components/animations/diceRoll.js'
-import axios from 'axios'
-import token from './config.js'
-import ResetButton from './components/resetButton.js'
-import goblin from './Components/Images/Goblinwizard.svg'
+import { choices, storyText } from './components/storyText.js';
+import GoblinLines from './components/goblinLines';
+import PlayerChoices from './components/playerChoices.js';
+import { diceRoll } from './components/animations/diceRoll.js';
+import axios from 'axios';
+import token from './config.js';
+import ResetButton from './components/resetButton.js';
+import goblin from './Components/Images/Goblinwizard.svg';
 import table from './Components/Images/Table.svg';
 import mouth from './Components/Images/goblinMouth.svg';
-import textAnimation from './Components/animations/textAnime.js'
-import goblinTalk from './Components/animations/goblinTalk.js'
-import InputBox from './Components/inputBox.js'
+import textAnimation from './Components/animations/textAnime.js';
+import goblinTalk from './Components/animations/goblinTalk.js';
+import InputBox from './Components/inputBox.js';
+import diceRotate from './Components/animations/diceRotate.js'
+import rightHand from './Components/Images/righthand.svg';
+import leftHand from './Components/Images/leftHand.svg';
+import handSpin from './Components/animations/handSpin.js'
 
 const defaults = {
   currentDieNum: 20,
@@ -46,6 +50,11 @@ class App extends React.Component {
     goblinTalk();
     textAnimation();
 
+  }
+
+  componentDidMount() {
+    diceRotate();
+    handSpin();
   }
 
   userSubmit(param) {
@@ -165,6 +174,11 @@ class App extends React.Component {
     <div id="main">
       <ResetButton reset={this.reset}/>
       <img id='goblin' src={goblin} height='500' width='auto' />
+      <img id='right-hand' src={rightHand} height='170' width='auto' />
+      <img id='left-hand' src={leftHand} height='170' width='auto' />
+      <svg id='path' width='100' length='auto'>
+        <path stroke='none' fill='none' d='M242,48 q-94,15 -95,104 q12,87 104,99 q78,-13 94,-100 q-10,-88 -97,-102'> </path>
+      </svg>
       <img id='mouth' src={mouth} />
       <img id='table' src={table} />
       <GoblinLines username={this.state.userName} onClick={this.advance.bind(this)} text={storyText[`node${this.state.storyNode}L${this.state.storyLine}`]}/>
