@@ -3,13 +3,41 @@
   display: grid;
   grid-template-rows: 1fr;
   height: 100vh;
-  background-color: aqua;
+  background-color: rgb(28, 1, 14);
+}
+
+#goblin {
+  position: absolute;
+  justify-self: center;
+  top: 5%;
+}
+
+#mouth {
+  height: 50px;
+  width: auto;
+  justify-self: center;
+  position: absolute;
+  z-index: 3;
+  top: 42%;
+}
+
+#reset-button {
+  height: 100px;
+  width: 100px;
 }
 
 #choice-1 {
   position: absolute;
   top: 20%;
   right: 10%;
+}
+#table {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  bottom: 0%;
+  z-index: 0;
+
 }
 
 #choice-2 {
@@ -43,7 +71,7 @@ input {
 
 #die {
   position: absolute;
-  top: 50%;
+  top: 85%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -52,11 +80,14 @@ input {
   margin: auto;
   text-align: center;
   font-size: 50px;
+  z-index: 2;
+  color: white;
 }
 
 #die-svg {
   position: absolute;
-  top: 50%;
+  fill: red;
+  top:85%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -74,11 +105,16 @@ input {
 }
 
 #crystal-ball {
-  grid-row: 2/3;
+  position: absolute;
+  top: 50%;
+  justify-self: center;;
 }
 
 #goblin-lines {
+ position: absolute;
+ top: 90%;
  justify-self: center;
-
+ font-size: 25px;
  grid-row: 3/4;
+ color: white;
 }

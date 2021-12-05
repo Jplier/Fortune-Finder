@@ -8,6 +8,12 @@ import { diceRoll } from './components/animations/diceRoll.js'
 import axios from 'axios'
 import token from './config.js'
 import ResetButton from './components/resetButton.js'
+import goblin from './Components/Images/Goblinwizard.svg'
+import table from './Components/Images/Table.svg';
+import mouth from './Components/Images/goblinMouth.svg';
+import textAnimation from './Components/animations/textAnime.js'
+import goblinTalk from './Components/animations/goblinTalk.js'
+import InputBox from './Components/inputBox.js'
 
 const defaults = {
   currentDieNum: 20,
@@ -31,24 +37,24 @@ class App extends React.Component {
     this.inputView = this.inputView.bind(this);
     this.choiceView = this.choiceView.bind(this);
     this.handleChoiceSelect = this.handleChoiceSelect.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
-  userSubmit() {
+  componentDidUpdate() {
+    var textWrapper = document.querySelector('#goblin-lines');
+    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+    goblinTalk();
+    textAnimation();
+
+  }
+
+  userSubmit(param) {
    event.preventDefault();
-   let config = {
-     url: '/username',
-     method: 'post',
+   axios.post('/username', {
      data: {
-       username: this.state.userName
-     },
-     headers: {
-       accept: 'application/json',
-       Authorization: token
+       username: param
      }
-
-
-   }
-   axios(config)
+   })
    .then((results) => {
      this.setState({
        inputRequired: false,
@@ -57,6 +63,7 @@ class App extends React.Component {
      })
 
    })
+   .catch((err) => {alert(err)});
   }
 
   diceClickHandler(e) {
@@ -102,23 +109,20 @@ class App extends React.Component {
     diceRoll()
     .then((result) => {
     if (e.target.value === '1') {
-      console.log(this.state.currentDieNum <= 10)
       if (Number(this.state.currentDieNum) <= 10) {
-        console.log('inside second if statement')
         this.setState({
           storyNode: choices[`choice${this.state.storyNode}-1`][1],
           storyLine: 1
         })
       }
       if (this.state.currentDieNum >= '10') {
-        console.log('inside second if statement')
         this.setState({
           storyNode: choices[`choice${this.state.storyNode}-1`][2],
           storyLine: 1
         })
       }
     }
-    if (e.target.value === 2) {
+    if (e.target.value === '2') {
       if (this.state.currentDieNum <= 10) {
         this.setState({
           storyNode: choices[`choice${this.state.storyNode}-2`][1],
@@ -137,12 +141,9 @@ class App extends React.Component {
 
   inputView() {
     return !this.state.inputRequired ? null :
-    (<>
-    <form id='username' onSubmit={this.userSubmit}>
-      <input type='text' value={this.state.userName} onChange={this.typeChange.bind(this)}></input>
-      <input type='submit' ></input>
-      </form>
-      </>)
+    (
+      <InputBox userSubmit={this.userSubmit} />
+    )
   }
 
   choiceView() {
@@ -152,6 +153,10 @@ class App extends React.Component {
 
   }
 
+  reset() {
+    this.setState(defaults)
+  }
+
   render() {
     if (this.state.storyNode === undefined || this.state.storyLine === undefined) {
       return null;
@@ -159,6 +164,9 @@ class App extends React.Component {
     return (
     <div id="main">
       <ResetButton reset={this.reset}/>
+      <img id='goblin' src={goblin} height='500' width='auto' />
+      <img id='mouth' src={mouth} />
+      <img id='table' src={table} />
       <GoblinLines username={this.state.userName} onClick={this.advance.bind(this)} text={storyText[`node${this.state.storyNode}L${this.state.storyLine}`]}/>
       <div>{this.inputView()}</div>
       <CrystalBall dieclick={this.diceClickHandler} id="crystal-ball"/>

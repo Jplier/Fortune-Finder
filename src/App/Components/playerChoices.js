@@ -1,7 +1,6 @@
 import React from 'react';
 
 const PlayerChoices = function(props) {
-  console.log(props.firstChoice)
   return (
   <>
     <button id='choice-1' value='1' onClick={props.handleChoiceSelect}>
