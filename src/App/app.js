@@ -85,14 +85,14 @@ class App extends React.Component {
       return null;
     }
     diceRoll()
-    .then(() =>
+    .then(() => {
       this.setState({
         currentDieNum: Number(document.getElementById('die').innerHTML),
         storyNode: this.state.storyNode === 0 ? 1 : null,
         storyLine: 1,
         diceEnable: false
       })
-    )
+    })
     .catch((err) => {
       console.log(err);
     })
@@ -121,14 +121,15 @@ class App extends React.Component {
   handleChoiceSelect(e) {
     diceRoll()
     .then((result) => {
+
     if (e.target.value === '1') {
-      if (Number(this.state.currentDieNum) <= 10) {
+      if (Number(document.getElementById('die').innerHTML) <= 10) {
         this.setState({
           storyNode: choices[`choice${this.state.storyNode}-1`][1],
           storyLine: 1
         })
       }
-      if (this.state.currentDieNum >= '10') {
+      if (Number(document.getElementById('die').innerHTML) >= '10') {
         this.setState({
           storyNode: choices[`choice${this.state.storyNode}-1`][2],
           storyLine: 1
@@ -136,7 +137,7 @@ class App extends React.Component {
       }
     }
     if (e.target.value === '2') {
-      if (this.state.currentDieNum <= 10) {
+      if (Number(document.getElementById('die').innerHTML) <= 10) {
         this.setState({
           storyNode: choices[`choice${this.state.storyNode}-2`][1],
           storyLine: 1

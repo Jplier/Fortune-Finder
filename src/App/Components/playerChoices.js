@@ -1,6 +1,9 @@
 import React from 'react';
 
 const PlayerChoices = function(props) {
+  if (props.firstChoice === undefined || props.secondChoice === undefined) {
+    return null;
+  }
   return (
   <>
     <button id='choice-1' value='1' onClick={props.handleChoiceSelect}>

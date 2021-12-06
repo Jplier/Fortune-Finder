@@ -24,7 +24,6 @@ app.listen(3000, (err) => {
 // })
 
 app.post('/username', (req, res) => {
-  console.log(req.body);
   db.postUserName(req.body.username)
   .then((results) => {
     res.status(201).send('hello, world');
