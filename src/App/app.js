@@ -177,14 +177,14 @@ class App extends React.Component {
     return (
     <div id="main">
       <ResetButton reset={this.reset}/>
-      <img id='goblin' src={goblin} height='500' width='auto' />
-      <img id='right-hand' src={rightHand} height='170' width='auto' />
-      <img id='left-hand' src={leftHand} height='170' width='auto' />
+      <img id='goblin' src={goblin} height='700' width='auto' />
+      <img id='right-hand' src={rightHand} height='200' width='auto' />
+      <img id='left-hand' src={leftHand} height='200' width='auto' />
       <svg id='path' width='100' length='auto'>
         <path stroke='none' fill='none' d='M242,48 q-94,15 -95,104 q12,87 104,99 q78,-13 94,-100 q-10,-88 -97,-102'> </path>
       </svg>
       <img id='mouth' src={mouth} />
-      <img id='table' width='1500' height='auto' src={table} />
+      <img id='table' width='120%' height='auto' src={table} />
       <GoblinLines username={this.state.userName} onClick={this.advance.bind(this)} text={storyText[`node${this.state.storyNode}L${this.state.storyLine}`]}/>
       <div>{this.inputView()}</div>
       <CrystalBall dieclick={this.diceClickHandler} id="crystal-ball"/>
