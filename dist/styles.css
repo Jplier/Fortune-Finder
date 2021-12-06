@@ -1,27 +1,36 @@
 
 #crystal-ball {
-  height: 350px;
-  width: auto;
-  justify-self: center;
+  height: 40vh;
   position: absolute;
-  top: 50%;
   z-index: 3;
+  bottom: 69%;
+}
+
+#path {
+  position: absolute;
+  left: 0%
 }
 
 #goblin {
   position: absolute;
+  top: 10%;
+  width: auto;
+  height: 100%;
   justify-self: center;
-  top: 15%;
+
 }
 
 #mouth {
-  height: 50px;
+  height: 10%;
   width: auto;
-  justify-self: center;
   position: absolute;
+  justify-self: center;
   z-index: 3;
-  top: 51%;
+  top: 73%;
+
 }
+
+
 
 #reset-button {
   position: absolute;
@@ -31,23 +40,27 @@
   border: none;
   background-color: transparent;
 
+
 }
 #right-hand {
   position: absolute;
-  z-index: 5;
+  height: 35%;
+  z-index: 10;
+  justify-self: center;
   top: 30%;
-  right: 35%;
+  right: 20%;
+  overflow: hidden;
 }
 #left-hand {
   position: absolute;
-  z-index: 5;
-  top: 25%;
-  left: 0%;
+  height: 37%;
+  z-index: 10;
+  top: 30%;
+  left: -10%;
+  overflow: hidden;
 }
 #choice-1 {
   position: absolute;
-  top: 60%;
-  right: 10%;
   color: white;
   background-color: black;
   font-family: 'Jost';
@@ -61,8 +74,6 @@
 
 #choice-2 {
   position: absolute;
-  top: 60%;
-  left: 10%;
   color: white;
   background-color: black;
   font-family: 'Jost';
@@ -81,36 +92,36 @@
 }
 
 #table {
+  height: 100%;
+  width: auto;
   position: absolute;
-  width: 1500px;
-  height: auto;
   bottom: 0%;
   z-index: 0;
-  justify-self: center;
   overflow: hidden;
-  transform: translateY(70px);
 
 }
 
 
 #die-container {
-  grid-row: 2/3;
   align-content: center;
-  position: relative;
+  display:flex;
+  position: absolute;
+  top: -30%;
 }
 
 #username {
+  width: 30%;
   position: absolute;
   align-self: center;
-  bottom: 5%;
-  left: 30%;
+  bottom: 45%;
   text-align: center;
   z-index: 2;
+  justify-content: center;
 }
 input[type='text']{
-  width: 200px;
-  height: 20px;
-  font-size: 15px;
+  width: 50%;
+  height: auto;
+  font-size: 30px;
   justify-self: center;
   background-color: black;
   color: white;
@@ -121,54 +132,43 @@ input[type='submit'] {
   margin-left: 20px;
   background-color: black;
   color: white;
-
+  height: 100%;
 }
 
 #die {
   position: absolute;
-  top: 85%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  left: 0;
-  right: 0;
-  margin: auto;
   text-align: center;
   font-size: 50px;
   z-index: 7;
   color: white;
+  left: 40%;
+  top: 35%;
+
+
 }
 
 #die-svg {
-  position: absolute;
-  fill: red;
-  top:75%;
-  left: 0;
-  right: 0;
-  margin: auto;
-  text-align: center;
+  height: 20vh;
 }
 
 #main {
-  grid-row: 1/2;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 4fr 2fr;
-  height: auto;
+
+  height: 100vh;
   overflow: hidden;
+  position: relative;
 }
 
 #goblin-lines {
  position: absolute;
- top: 83%;
- justify-self: center;
+ bottom: 55%;
  font-size: 35px;
  color: white;
- width: 50%;
+ width: 50vw;
  text-align: center;
  background-color: black;
  border: solid white 5px;
  font-family: 'Jost', cursive;
+ z-index: 10;
 }
 
 .ml11 {
@@ -214,8 +214,6 @@ input[type='submit'] {
 }
 
 #app {
-  display: grid;
-  grid-template-rows: 1fr;
   position: relative;
   width:100vw;
   height:100vh;
@@ -224,13 +222,24 @@ input[type='submit'] {
   background-size: cover;
 }
 
-/* #background {
-  width: 200vw;
-  height: 200vh;
-  position: absolute;
-  top: 0%;
-  justify-self: center;
-} */
+#goblin-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 70vh;
+}
+
+#table-contents {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height:50vh
+}
+
+* {
+  font-family: 'Jost';
+}
+
 
 
 

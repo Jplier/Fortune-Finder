@@ -19,7 +19,7 @@ class InputBox extends React.Component {
     return (
       <>
       <form id='username' onSubmit={() => {this.props.userSubmit(this.state.username)}}>
-        <input type='text' value={this.state.username} onChange={this.typeChange.bind(this)}></input>
+        <input type='text' placeholder='Enter name' value={this.state.username} onChange={this.typeChange.bind(this)}></input>
         <input type='submit' ></input>
       </form>
       </>
