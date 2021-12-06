@@ -80,6 +80,8 @@ class App extends React.Component {
   }
 
   diceClickHandler(e) {
+    let die = document.getElementById('die-container')
+    die.style.pointerEvents = 'none';
     e.preventDefault();
     if (!this.state.diceEnable) {
       return null;
