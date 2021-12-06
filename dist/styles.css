@@ -69,7 +69,9 @@
   height: auto;
   border: solid white 5px;
   font-size: 25px;
-  left: 20%;
+  left: 15%;
+  top: -10%
+
 }
 
 
@@ -83,7 +85,8 @@
   width: 300px;
   height: auto;
   border: solid white 5px;
-  right: 20%;
+  right: 15%;
+  top: -20%;
 }
 
 #choice-2:hover {
