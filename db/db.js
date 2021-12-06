@@ -4,7 +4,7 @@ const pool = new Pool({
   user: 'ubuntu',
   host: '18.221.150.119',
   database: 'fortunefinder',
-  password: '',
+  password: 'ubuntu',
   port: 5432
 })
 
