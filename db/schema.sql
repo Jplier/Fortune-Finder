@@ -1,0 +1,13 @@
+CREATE DATABASE IF NOT EXISTS MVP
+
+CREATE TABLE IF NOT EXISTS usernames (
+  id SERIAL,
+  username VARCHAR(255)
+)
+
+CREATE TABLE IF NOT EXISTS rolls (
+  id SERIAL,
+  roll INTEGER,
+  FOREIGN KEY (user_id)
+    REFERENCES usernames (id) 
+)
